@@ -6,15 +6,16 @@ using UnityEngine.AI;
 public class Traveler : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private SpawnZone reachableBounds;
+    [SerializeField] private TravelerZone reachableBounds;
     [SerializeField] private float distanceReachedPoint = 1;
 
     #region Gizmos
+    private bool isRightSide;
     private Vector3 agentDestination;
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = isRightSide ? Color.green : Color.red;
         Gizmos.DrawSphere(agentDestination, .2f);
     }
     #endregion
@@ -29,6 +30,9 @@ public class Traveler : MonoBehaviour
         // Make agent abale to pass through other agents
         agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
         FindOtherDestination();
+
+        // Debug
+        GetComponentInChildren<MeshRenderer>().material.color = isRightSide? Color.green : Color.red;
     }
 
     private void Update()
@@ -43,9 +47,10 @@ public class Traveler : MonoBehaviour
     /// Initialize the agent
     /// </summary>
     /// <param name="_zone">SpawnZone where the agent will walk</param>
-    public void InitializeAgent(SpawnZone _zone)
+    public void InitializeAgent(TravelerZone _zone, bool _isRightSide)
     {
         reachableBounds = _zone;
+        isRightSide = _isRightSide;
     }
 
     /// <summary>

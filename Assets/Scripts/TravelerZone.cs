@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnZone : MonoBehaviour
+public class TravelerZone : MonoBehaviour
 {
     [SerializeField] private Vector3 zoneBounds;
 
