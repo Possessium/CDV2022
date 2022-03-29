@@ -6,7 +6,7 @@ public class TravelerZone : MonoBehaviour
 {
     [SerializeField] private Vector3 zoneBounds;
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = new Color(255, 165, 0, .25f);
         Gizmos.DrawCube(transform.position, zoneBounds * 2);
