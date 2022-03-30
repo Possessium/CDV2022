@@ -11,12 +11,15 @@ public class TravelerManager : MonoBehaviour
     [SerializeField, Tooltip("TravelerZone of the player 1")] private TravelerZone p1SpawnZone;
     [SerializeField, Tooltip("TravelerZone of the player 2")] private TravelerZone p2SpawnZone;
 
+    [SerializeField] private AnimationCurve populationCurve;
+
     private List<TravelerSpawner> allSpawnerRight = new List<TravelerSpawner>();
     private List<TravelerSpawner> allSpawnerLeft = new List<TravelerSpawner>();
 
     private int p1Travelers = 0;
     private int p2Travelers = 0;
 
+    private float gameTime = 0;
 
     private void Start()
     {
@@ -49,5 +52,41 @@ public class TravelerManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        gameTime += Time.deltaTime;
+        
+        int _targetPopulation = (int)populationCurve.Evaluate(gameTime);
 
+        if(p1Travelers < _targetPopulation)
+        {
+            int _missing = _targetPopulation - p1Travelers;
+
+            Traveler _tempTraveler;
+            TravelerSpawner _tempSpawner;
+            for (int i = 0; i < _missing; i++)
+            {
+                _tempSpawner = allSpawnerRight[Random.Range(0, allSpawnerRight.Count - 1)];
+                _tempTraveler = Instantiate(travelerPrefab, _tempSpawner.transform.position, Quaternion.identity);
+                _tempTraveler.InitializeAgent(p1SpawnZone, true);
+                p1Travelers++;
+            }
+        }
+
+
+        if (p2Travelers < _targetPopulation)
+        {
+            int _missing = _targetPopulation - p2Travelers;
+
+            Traveler _tempTraveler;
+            TravelerSpawner _tempSpawner;
+            for (int i = 0; i < _missing; i++)
+            {
+                _tempSpawner = allSpawnerLeft[Random.Range(0, allSpawnerRight.Count - 1)];
+                _tempTraveler = Instantiate(travelerPrefab, _tempSpawner.transform.position, Quaternion.identity);
+                _tempTraveler.InitializeAgent(p2SpawnZone, false);
+                p2Travelers++;
+            }
+        }
+    }
 }
