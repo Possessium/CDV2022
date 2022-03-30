@@ -8,7 +8,9 @@ public class Traveler : MonoBehaviour
     private NavMeshAgent agent;
     private TravelerZone reachableBounds;
     [SerializeField, Tooltip("Distance when the agent consider its point reached")] private float distanceReachedPoint = 1;
-    [SerializeField] private WindowDepot window;
+    [SerializeField] private int scoreValue = 10;
+    public int ScoreValue { get { return scoreValue; } }
+    private WindowDepot window;
 
     #region Gizmos
     private bool isRightSide;

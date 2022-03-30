@@ -7,7 +7,7 @@ public class TravelerManager : MonoBehaviour
 {
     public static TravelerManager instance;
 
-    [SerializeField, Tooltip("Prefab of the Traveler to spawn")] private Traveler travelerPrefab;
+    [SerializeField, Tooltip("Prefabs of the Travelers to spawn")] private Traveler[] travelersPrefab;
     [SerializeField, Tooltip("Number of travelers to spawn at the start of the game")] private int startTravelers = 15;
 
     [SerializeField, Tooltip("TravelerZone of the player 1")] private TravelerZone p1SpawnZone;
@@ -48,12 +48,12 @@ public class TravelerManager : MonoBehaviour
         for (int i = 0; i < startTravelers; i++)
         {
             _tempSpawner = allSpawnerRight[Random.Range(0, allSpawnerRight.Count - 1)];
-            _tempTraveler = Instantiate(travelerPrefab, _tempSpawner.transform.position, Quaternion.identity);
+            _tempTraveler = Instantiate(travelersPrefab[Random.Range(0, travelersPrefab.Length)], _tempSpawner.transform.position, Quaternion.identity);
             _tempTraveler.InitializeAgent(p1SpawnZone, true);
             p1Travelers++;
 
             _tempSpawner = allSpawnerLeft[Random.Range(0, allSpawnerLeft.Count - 1)];
-            _tempTraveler = Instantiate(travelerPrefab, _tempSpawner.transform.position, Quaternion.identity);
+            _tempTraveler = Instantiate(travelersPrefab[Random.Range(0, travelersPrefab.Length)], _tempSpawner.transform.position, Quaternion.identity);
             _tempTraveler.InitializeAgent(p2SpawnZone, false);
             p2Travelers++;
         }
@@ -74,7 +74,7 @@ public class TravelerManager : MonoBehaviour
             for (int i = 0; i < _missing; i++)
             {
                 _tempSpawner = allSpawnerRight[Random.Range(0, allSpawnerRight.Count - 1)];
-                _tempTraveler = Instantiate(travelerPrefab, _tempSpawner.transform.position, Quaternion.identity);
+                _tempTraveler = Instantiate(travelersPrefab[Random.Range(0, travelersPrefab.Length)], _tempSpawner.transform.position, Quaternion.identity);
                 _tempTraveler.InitializeAgent(p1SpawnZone, true);
                 p1Travelers++;
             }
@@ -90,7 +90,7 @@ public class TravelerManager : MonoBehaviour
             for (int i = 0; i < _missing; i++)
             {
                 _tempSpawner = allSpawnerLeft[Random.Range(0, allSpawnerRight.Count - 1)];
-                _tempTraveler = Instantiate(travelerPrefab, _tempSpawner.transform.position, Quaternion.identity);
+                _tempTraveler = Instantiate(travelersPrefab[Random.Range(0, travelersPrefab.Length)], _tempSpawner.transform.position, Quaternion.identity);
                 _tempTraveler.InitializeAgent(p2SpawnZone, false);
                 p2Travelers++;
             }

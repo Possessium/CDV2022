@@ -570,6 +570,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoneBounds: {x: 4.4, y: 0.1, z: 4.4}
+--- !u!1 &661627226
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 661627228}
+  - component: {fileID: 661627227}
+  m_Layer: 0
+  m_Name: LOGIC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &661627227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661627226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4773d84ebfbbb4b47872802bf8b88ba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreP1: 0
+--- !u!4 &661627228
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661627226}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.692687, y: -1.3089978, z: -5.065962}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &765450158
 GameObject:
   m_ObjectHideFlags: 0
@@ -1358,7 +1403,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e98bf17e41ac1d479b597b17f4cbd29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  travelerPrefab: {fileID: 5624607624966330475, guid: 56f7f811862f02f4081d248c145eeb3e, type: 3}
+  travelersPrefab:
+  - {fileID: 5624607624966330475, guid: 56f7f811862f02f4081d248c145eeb3e, type: 3}
   startTravelers: 15
   p1SpawnZone: {fileID: 352342040}
   p2SpawnZone: {fileID: 765450163}

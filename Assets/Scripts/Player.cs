@@ -81,13 +81,17 @@ public class Player : MonoBehaviour
             // Tells the manager to remove the number of grabbed Travelers to update the current number in the move area
             TravelerManager.instance.RemoveTravelers(grabbedTravelers.Count - 1, isPlayer1);
 
+            int _scoreToAdd = 0;
+
             foreach (Traveler _traveler in grabbedTravelers)
             {
+                _scoreToAdd += _traveler.ScoreValue;
                 _traveler.transform.position = transform.position + Vector3.up;
                 _traveler.gameObject.SetActive(true);
                 _traveler.SetWindow(_d);
             }
 
+            GameManager.instance.AddScore(_scoreToAdd, isPlayer1);
         }
 
         else
