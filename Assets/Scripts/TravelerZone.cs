@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TravelerZone : MonoBehaviour
 {
-    [SerializeField] private Vector3 zoneBounds;
+    [SerializeField, Tooltip("Bounds where the Travelers will walk")] private Vector3 zoneBounds;
 
     private void OnDrawGizmosSelected()
     {

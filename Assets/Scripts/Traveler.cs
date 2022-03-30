@@ -5,9 +5,9 @@ using UnityEngine.AI;
 
 public class Traveler : MonoBehaviour
 {
-    [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private TravelerZone reachableBounds;
-    [SerializeField] private float distanceReachedPoint = 1;
+    private NavMeshAgent agent;
+    private TravelerZone reachableBounds;
+    [SerializeField, Tooltip("Distance when the agent consider its point reached")] private float distanceReachedPoint = 1;
 
     #region Gizmos
     private bool isRightSide;

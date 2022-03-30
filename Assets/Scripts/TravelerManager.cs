@@ -5,11 +5,11 @@ using System.Linq;
 
 public class TravelerManager : MonoBehaviour
 {
-    [SerializeField] private Traveler travelerPrefab;
-    [SerializeField] private int startTravelers = 15;
+    [SerializeField, Tooltip("Prefab of the Traveler to spawn")] private Traveler travelerPrefab;
+    [SerializeField, Tooltip("Number of travelers to spawn at the start of the game")] private int startTravelers = 15;
 
-    [SerializeField] private TravelerZone p1SpawnZone;
-    [SerializeField] private TravelerZone p2SpawnZone;
+    [SerializeField, Tooltip("TravelerZone of the player 1")] private TravelerZone p1SpawnZone;
+    [SerializeField, Tooltip("TravelerZone of the player 2")] private TravelerZone p2SpawnZone;
 
     private List<TravelerSpawner> allSpawnerRight = new List<TravelerSpawner>();
     private List<TravelerSpawner> allSpawnerLeft = new List<TravelerSpawner>();

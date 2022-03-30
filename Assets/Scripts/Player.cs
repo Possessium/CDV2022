@@ -6,10 +6,10 @@ using UnityEditor;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float radius = 5;
-    [SerializeField] private float speed = 1;
-    [SerializeField] private LayerMask travelerLayer = 0;
-    [SerializeField] private Bounds playerLimits;
+    [SerializeField, Tooltip("Size of the grab")] private float radius = 5;
+    [SerializeField, Tooltip("Speed of the hand")] private float speed = 1;
+    [SerializeField, Tooltip("Layer of the Travelers")] private LayerMask travelerLayer = 0;
+    [SerializeField, Tooltip("Limits of the player movements")] private Bounds playerLimits;
 
     private List<Traveler> grabbedTravelers = new List<Traveler>();
 
