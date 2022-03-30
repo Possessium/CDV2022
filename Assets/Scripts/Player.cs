@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
 
     private List<Traveler> grabbedTravelers = new List<Traveler>();
 
-    [SerializeField] private Vector2 inputMovement;
+    private Vector2 inputMovement;
 
     private void OnDrawGizmosSelected()
     {
@@ -26,10 +26,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        Vector3 _nextPosition = Vector3.MoveTowards(transform.position, transform.position + new Vector3(inputMovement.x, 0, inputMovement.y), Time.deltaTime * speed);
-
-        if (playerLimits.Contains(_nextPosition))
-            transform.position = _nextPosition;
+        MovePlayer();
     }
 
     #region Inputs
@@ -50,6 +47,24 @@ public class Player : MonoBehaviour
     }
 
     #endregion
+
+    /// <summary>
+    /// Move the players based on the input and blocks him inside its bounds
+    /// </summary>
+    private void MovePlayer()
+    {
+        Vector3 _nextPosition = Vector3.MoveTowards(transform.position, transform.position + new Vector3(inputMovement.x, 0, inputMovement.y), Time.deltaTime * speed);
+
+        // Limits the X position of the player in the bounds
+        if (_nextPosition.x < (playerLimits.min.x / 2) + (playerLimits.center.x / 2) || _nextPosition.x > (playerLimits.max.x / 2) + (playerLimits.center.x / 2))
+            _nextPosition.x = transform.position.x;
+
+        // Limits the Y position of the player in the bounds
+        if (_nextPosition.z < (playerLimits.min.z / 2) + playerLimits.center.z || _nextPosition.z > (playerLimits.max.z / 2) + playerLimits.center.z)
+            _nextPosition.z = transform.position.z;
+
+        transform.position = _nextPosition;
+    }
 
     private void ReleaseTravelers()
     {
