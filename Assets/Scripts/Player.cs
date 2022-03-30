@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
             _nextPosition.x = transform.position.x;
 
         // Limits the Y position of the player in the bounds
-        if (_nextPosition.z < (playerLimits.min.z / 2) + playerLimits.center.z || _nextPosition.z > (playerLimits.max.z / 2) + playerLimits.center.z)
+        if (_nextPosition.z < (playerLimits.min.z / 2) + (playerLimits.center.z / 2) || _nextPosition.z > (playerLimits.max.z / 2) + (playerLimits.center.z / 2))
             _nextPosition.z = transform.position.z;
 
         transform.position = _nextPosition;
