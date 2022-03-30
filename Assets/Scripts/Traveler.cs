@@ -8,6 +8,7 @@ public class Traveler : MonoBehaviour
     private NavMeshAgent agent;
     private TravelerZone reachableBounds;
     [SerializeField, Tooltip("Distance when the agent consider its point reached")] private float distanceReachedPoint = 1;
+    [SerializeField] private WindowDepot window;
 
     #region Gizmos
     private bool isRightSide;
@@ -37,8 +38,11 @@ public class Traveler : MonoBehaviour
 
     private void Update()
     {
+        if (window)
+            MoveTowardsWindow();
+
         // Find a new destination when the current one is close enough
-        if (agent.remainingDistance < distanceReachedPoint)
+        else if (agent.isOnNavMesh && agent.remainingDistance < distanceReachedPoint)
             FindOtherDestination();
     }
 
@@ -80,5 +84,16 @@ public class Traveler : MonoBehaviour
     public void StartMoving()
     {
         agent.isStopped = false;
+    }
+
+    public void SetWindow(WindowDepot _window)
+    {
+        agent.enabled = false;
+        window = _window;
+    }
+
+    private void MoveTowardsWindow()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, window.transform.position, Time.deltaTime * 3.5f);
     }
 }

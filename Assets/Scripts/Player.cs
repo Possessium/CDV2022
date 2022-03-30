@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEditor;
+using System.Linq;
 
 public class Player : MonoBehaviour
 {
     [SerializeField, Tooltip("Size of the grab")] private float radius = 5;
     [SerializeField, Tooltip("Speed of the hand")] private float speed = 1;
     [SerializeField, Tooltip("Layer of the Travelers")] private LayerMask travelerLayer = 0;
+    [SerializeField, Tooltip("Layer of the Window")] private LayerMask windowLayer = 0;
     [SerializeField, Tooltip("Limits of the player movements")] private Bounds playerLimits;
+    [SerializeField] private bool isPlayer1;
 
     private List<Traveler> grabbedTravelers = new List<Traveler>();
 
@@ -68,16 +71,37 @@ public class Player : MonoBehaviour
 
     private void ReleaseTravelers()
     {
-        // Check la porte
-            // True : lacher les traveler dans la porte (bloquer le système d'agent pour pas qu'ils tp comme des connards au bord de leur zone)
-        // False : ce qui a en dessous
-
-        foreach (Traveler _traveler in grabbedTravelers)
+        // Search for a window in the release area
+        RaycastHit[] _hits = Physics.SphereCastAll(transform.position, radius, Vector3.up, 4, windowLayer);
+        if (_hits.Any( _h => _h.transform.GetComponent<WindowDepot>()))
         {
-            _traveler.transform.position = transform.position + Vector3.up;
-            _traveler.gameObject.SetActive(true);
+            // Get the Window if found any and gives it to each grabbed Travelers while releasing them
+            WindowDepot _d = _hits.Select(_h => _h.transform.GetComponent<WindowDepot>()).First();
+
+            // Tells the manager to remove the number of grabbed Travelers to update the current number in the move area
+            TravelerManager.instance.RemoveTravelers(grabbedTravelers.Count - 1, isPlayer1);
+
+            foreach (Traveler _traveler in grabbedTravelers)
+            {
+                _traveler.transform.position = transform.position + Vector3.up;
+                _traveler.gameObject.SetActive(true);
+                _traveler.SetWindow(_d);
+            }
+
         }
+
+        else
+        {
+            // Release each traveler at the hand position
+            foreach (Traveler _traveler in grabbedTravelers)
+            {
+                _traveler.transform.position = transform.position + Vector3.up;
+                _traveler.gameObject.SetActive(true);
+            }
+        }
+
         grabbedTravelers.Clear();
+
     }
     private void GrabTravelers()
     {

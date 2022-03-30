@@ -5,6 +5,8 @@ using System.Linq;
 
 public class TravelerManager : MonoBehaviour
 {
+    public static TravelerManager instance;
+
     [SerializeField, Tooltip("Prefab of the Traveler to spawn")] private Traveler travelerPrefab;
     [SerializeField, Tooltip("Number of travelers to spawn at the start of the game")] private int startTravelers = 15;
 
@@ -20,6 +22,11 @@ public class TravelerManager : MonoBehaviour
     private int p2Travelers = 0;
 
     private float gameTime = 0;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
@@ -88,5 +95,19 @@ public class TravelerManager : MonoBehaviour
                 p2Travelers++;
             }
         }
+    }
+
+    /// <summary>
+    /// Remove the amount of travelers of the correct player
+    /// </summary>
+    /// <param name="_amount">int : amount to remove</param>
+    /// <param name="_isP1">bool : Is player 1</param>
+    public void RemoveTravelers(int _amount, bool _isP1)
+    {
+        if(_isP1)
+            p1Travelers -= _amount;
+
+        else
+            p2Travelers -= _amount;
     }
 }
