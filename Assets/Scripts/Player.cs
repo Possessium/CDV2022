@@ -91,7 +91,7 @@ public class Player : MonoBehaviour
                 _traveler.SetWindow(_d);
             }
 
-            GameManager.instance.AddScore(_scoreToAdd, isPlayer1);
+            GameManager.Instance.AddScore(_scoreToAdd, isPlayer1);
         }
 
         else
