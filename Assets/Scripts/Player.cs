@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     private List<Traveler> grabbedTravelers = new List<Traveler>();
 
     private Vector2 inputMovement;
+    private bool canGrab = true;
+    [SerializeField] private float cooldownDuration = .2f;
 
     private void OnDrawGizmosSelected()
     {
@@ -40,7 +42,7 @@ public class Player : MonoBehaviour
 
         if (grabbedTravelers.Count != 0)
             ReleaseTravelers();
-        else
+        else if(canGrab)
             GrabTravelers();
     }
 
@@ -106,7 +108,16 @@ public class Player : MonoBehaviour
 
         grabbedTravelers.Clear();
 
+        StartCoroutine(DelayGrab());
     }
+
+    IEnumerator DelayGrab()
+    {
+        canGrab = false;
+        yield return new WaitForSeconds(cooldownDuration);
+        canGrab = true;
+    }
+
     private void GrabTravelers()
     {
         RaycastHit[] _hits = Physics.SphereCastAll(transform.position, radius, Vector3.up, 4, travelerLayer);
