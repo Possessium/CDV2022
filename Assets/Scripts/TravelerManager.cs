@@ -18,7 +18,9 @@ public class TravelerManager : MonoBehaviour
     private List<TravelerSpawner> allSpawnerRight = new List<TravelerSpawner>();
     private List<TravelerSpawner> allSpawnerLeft = new List<TravelerSpawner>();
 
-    private int p1Travelers = 0;
+    [SerializeField] private List<Traveler> travelerPool = new List<Traveler>();
+
+    [SerializeField] private int p1Travelers = 0;
     private int p2Travelers = 0;
 
     private float gameTime = 0;
@@ -74,7 +76,16 @@ public class TravelerManager : MonoBehaviour
             for (int i = 0; i < _missing; i++)
             {
                 _tempSpawner = allSpawnerRight[Random.Range(0, allSpawnerRight.Count - 1)];
-                _tempTraveler = Instantiate(travelersPrefab[Random.Range(0, travelersPrefab.Length)], _tempSpawner.transform.position, Quaternion.identity);
+
+                if (travelerPool.Count > 0)
+                {
+                    _tempTraveler = travelerPool[0];
+                    travelerPool.Remove(_tempTraveler);
+                    _tempTraveler.transform.position = _tempSpawner.transform.position;
+                }
+                else
+                    _tempTraveler = Instantiate(travelersPrefab[Random.Range(0, travelersPrefab.Length)], _tempSpawner.transform.position, Quaternion.identity);
+
                 _tempTraveler.InitializeAgent(p1SpawnZone, true);
                 p1Travelers++;
             }
@@ -89,12 +100,32 @@ public class TravelerManager : MonoBehaviour
             TravelerSpawner _tempSpawner;
             for (int i = 0; i < _missing; i++)
             {
-                _tempSpawner = allSpawnerLeft[Random.Range(0, allSpawnerRight.Count - 1)];
-                _tempTraveler = Instantiate(travelersPrefab[Random.Range(0, travelersPrefab.Length)], _tempSpawner.transform.position, Quaternion.identity);
+                _tempSpawner = allSpawnerLeft[Random.Range(0, allSpawnerLeft.Count - 1)];
+
+                if (travelerPool.Count > 0)
+                {
+                    _tempTraveler = travelerPool[0];
+                    travelerPool.Remove(_tempTraveler);
+                    _tempTraveler.transform.position = _tempSpawner.transform.position;
+                }
+                else
+                    _tempTraveler = Instantiate(travelersPrefab[Random.Range(0, travelersPrefab.Length)], _tempSpawner.transform.position, Quaternion.identity);
+
                 _tempTraveler.InitializeAgent(p2SpawnZone, false);
                 p2Travelers++;
             }
         }
+    }
+
+    /// <summary>
+    /// Adds the Traveler to the pool of Traveler
+    /// </summary>
+    /// <param name="_t">Traveler : Traveler to add</param>
+    public void SetTravelerToPool(Traveler _t)
+    {
+        travelerPool.Add(_t);
+        _t.transform.position = Vector3.down * 10;
+        _t.StopMoving();
     }
 
     /// <summary>

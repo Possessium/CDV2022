@@ -57,6 +57,8 @@ public class Traveler : MonoBehaviour
     {
         reachableBounds = _zone;
         isRightSide = _isRightSide;
+        StartMoving();
+        FindOtherDestination();
     }
 
     /// <summary>
@@ -77,7 +79,7 @@ public class Traveler : MonoBehaviour
     /// </summary>
     public void StopMoving()
     {
-        agent.isStopped = true;
+        agent.enabled = false;
     }
 
     /// <summary>
@@ -85,17 +87,22 @@ public class Traveler : MonoBehaviour
     /// </summary>
     public void StartMoving()
     {
-        agent.isStopped = false;
+        agent.enabled = true;
     }
 
     public void SetWindow(WindowDepot _window)
     {
-        agent.enabled = false;
+        StopMoving();
         window = _window;
     }
 
     private void MoveTowardsWindow()
     {
         transform.position = Vector3.MoveTowards(transform.position, window.transform.position, Time.deltaTime * 3.5f);
+        if (Vector3.Distance(transform.position, window.transform.position) < .5f)
+        {
+            window = null;
+            TravelerManager.instance.SetTravelerToPool(this);
+        }
     }
 }
