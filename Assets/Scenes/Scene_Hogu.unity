@@ -282,7 +282,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1000
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 25586561d669a704ab18a773c1ca524f, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 25586561d669a704ab18a773c1ca524f, type: 2}
@@ -1229,6 +1229,8 @@ MonoBehaviour:
   handRenderer: {fileID: 1805537385}
   closedHand: {fileID: -750973025, guid: aa573c9d5255eee489baceb66f0bf789, type: 3}
   openedHand: {fileID: 1046853320, guid: aa573c9d5255eee489baceb66f0bf789, type: 3}
+  grabbedTravelersCountText: {fileID: 137826230}
+  moveTextTime: 0.5
   cooldownDuration: 0.2
 --- !u!4 &1101701232
 Transform:
