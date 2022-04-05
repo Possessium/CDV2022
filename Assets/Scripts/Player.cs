@@ -14,6 +14,12 @@ public class Player : MonoBehaviour
     [SerializeField, Tooltip("Limits of the player movements")] private Bounds playerLimits;
     [SerializeField] private bool isPlayer1;
 
+    [SerializeField] private SpriteRenderer handRenderer;
+    [SerializeField] private Sprite closedHand;
+    [SerializeField] private Sprite openedHand;
+    [SerializeField] private TMPro.TMP_Text grabbedTravelersCountText;
+    [SerializeField] private float moveTextTime = .5f;
+
     private List<Traveler> grabbedTravelers = new List<Traveler>();
 
     private Vector2 inputMovement;
@@ -42,7 +48,7 @@ public class Player : MonoBehaviour
 
         if (grabbedTravelers.Count != 0)
             ReleaseTravelers();
-        else if(canGrab)
+        else if (canGrab)
             GrabTravelers();
     }
 
@@ -73,9 +79,12 @@ public class Player : MonoBehaviour
 
     private void ReleaseTravelers()
     {
+        handRenderer.sprite = openedHand;
+        StartCoroutine(MoveTowardsGrabbedCountUI(grabbedTravelers.Count, 0));
+
         // Search for a window in the release area
         RaycastHit[] _hits = Physics.SphereCastAll(transform.position, radius, Vector3.up, 4, windowLayer);
-        if (_hits.Any( _h => _h.transform.GetComponent<WindowDepot>()))
+        if (_hits.Any(_h => _h.transform.GetComponent<WindowDepot>()))
         {
             // Get the Window if found any and gives it to each grabbed Travelers while releasing them
             WindowDepot _d = _hits.Select(_h => _h.transform.GetComponent<WindowDepot>()).First();
@@ -128,6 +137,34 @@ public class Player : MonoBehaviour
                 grabbedTravelers.Add(_hit.transform.GetComponent<Traveler>());
                 _hit.transform.gameObject.SetActive(false);
             }
+        }
+
+        if (grabbedTravelers.Count > 0)
+        {
+            StartCoroutine(MoveTowardsGrabbedCountUI(0, grabbedTravelers.Count));
+            handRenderer.sprite = closedHand;
+        }
+
+    }
+
+    /// <summary>
+    /// Move the UI on the hand to the given parameters
+    /// </summary>
+    /// <param name="_start">int : Start of the lerp</param>
+    /// <param name="_target">int : End of the lerp</param>
+    /// <returns></returns>
+    private IEnumerator MoveTowardsGrabbedCountUI(int _start, int _target)
+    {
+        int _lerpedCount = 0;
+        float _elapsedTime = 0;
+        float _speed = Mathf.Max(_start, _target);
+
+        while (grabbedTravelersCountText.text != _target.ToString())
+        {
+            _elapsedTime += Time.deltaTime;
+            _lerpedCount = (int)Mathf.MoveTowards(_start, _target, (_elapsedTime / moveTextTime) * _speed);
+            grabbedTravelersCountText.text = _lerpedCount.ToString();
+            yield return new WaitForEndOfFrame();
         }
     }
 }
