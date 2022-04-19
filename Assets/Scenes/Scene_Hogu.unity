@@ -1232,8 +1232,8 @@ MonoBehaviour:
     m_Extent: {x: 19, y: 1, z: 21.75}
   isPlayer1: 1
   handRenderer: {fileID: 1380829824}
-  closedHand: {fileID: -750973025, guid: aa573c9d5255eee489baceb66f0bf789, type: 3}
-  openedHand: {fileID: 1046853320, guid: aa573c9d5255eee489baceb66f0bf789, type: 3}
+  closedHand: {fileID: -1717062783, guid: ef6f5c77efe75014f8fc52f19cefdd7f, type: 3}
+  openedHand: {fileID: -1841969577, guid: ef6f5c77efe75014f8fc52f19cefdd7f, type: 3}
   grabbedTravelersCountText: {fileID: 1657572331}
   moveTextTime: 0.5
   cooldownDuration: 0.2
@@ -1423,8 +1423,8 @@ MonoBehaviour:
     m_Extent: {x: 19, y: 1, z: 21.75}
   isPlayer1: 1
   handRenderer: {fileID: 1805537385}
-  closedHand: {fileID: -750973025, guid: aa573c9d5255eee489baceb66f0bf789, type: 3}
-  openedHand: {fileID: 1046853320, guid: aa573c9d5255eee489baceb66f0bf789, type: 3}
+  closedHand: {fileID: -1717062783, guid: ef6f5c77efe75014f8fc52f19cefdd7f, type: 3}
+  openedHand: {fileID: -1841969577, guid: ef6f5c77efe75014f8fc52f19cefdd7f, type: 3}
   grabbedTravelersCountText: {fileID: 137826230}
   moveTextTime: 0.5
   cooldownDuration: 0.2
@@ -2419,9 +2419,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 1046853320, guid: aa573c9d5255eee489baceb66f0bf789, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_Sprite: {fileID: -1841969577, guid: ef6f5c77efe75014f8fc52f19cefdd7f, type: 3}
+  m_Color: {r: 0, g: 0.03812504, b: 1, a: 1}
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 3.24, y: 3.53}
@@ -2949,8 +2949,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 1046853320, guid: aa573c9d5255eee489baceb66f0bf789, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: -1841969577, guid: ef6f5c77efe75014f8fc52f19cefdd7f, type: 3}
+  m_Color: {r: 0.9245283, g: 0, b: 0.6392815, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
