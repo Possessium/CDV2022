@@ -41,10 +41,10 @@ public class UIManager : MonoBehaviour
     /// <summary>
     /// Update the UI of the Timer
     /// </summary>
-    /// <param name="_remainingTime">float : new value of the Timer</param>
-    public void UpdateTime(float _remainingTime)
+    /// <param name="_elapsedTime">float : new value of the Timer</param>
+    public void UpdateTime(float _elapsedTime)
     {
-        TimeSpan _ts = TimeSpan.FromSeconds(_remainingTime);
+        TimeSpan _ts = TimeSpan.FromSeconds(120 - _elapsedTime);
 
         timer.text = _ts.ToString(@"mm\:ss");
     }
