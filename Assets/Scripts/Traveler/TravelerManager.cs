@@ -18,9 +18,9 @@ public class TravelerManager : MonoBehaviour
     private List<TravelerSpawner> allSpawnerRight = new List<TravelerSpawner>();
     private List<TravelerSpawner> allSpawnerLeft = new List<TravelerSpawner>();
 
-    [SerializeField] private List<Traveler> travelerPool = new List<Traveler>();
+    private List<Traveler> travelerPool = new List<Traveler>();
 
-    [SerializeField] private int p1Travelers = 0;
+    private int p1Travelers = 0;
     private int p2Travelers = 0;
 
     private void Awake()

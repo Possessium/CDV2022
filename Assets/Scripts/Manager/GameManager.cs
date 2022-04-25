@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public bool IsGameStarted { get; private set; } = false;
-    public float CurrentTime { get; private set; } = 120;
+    public float CurrentTime { get; private set; }
 
     public event Action OnGameStart = null;
     public event Action<int, int> OnScoreUpdate = null;
@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        CurrentTime = 0;
         Instance = this;
     }
 
