@@ -92,6 +92,54 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "Debug",
+            "id": "c442468d-8495-42b2-8cbf-41bdfbdfe1a0",
+            "actions": [
+                {
+                    "name": "RDY 1",
+                    "type": "Button",
+                    "id": "5e4b45ac-557b-417a-baaf-cbaa1cb5eaec",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RDY 2",
+                    "type": "Button",
+                    "id": "c64e9a74-e2e3-4933-8e0b-d11f7d6cf657",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b212f2a6-1e0e-41b8-a8be-cabf6a9e7499",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RDY 1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a934b502-d62c-4e33-8acc-0ae59890d301",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RDY 2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

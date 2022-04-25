@@ -7,13 +7,16 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public bool IsGameStarted { get; private set; } = false;
+    public float CurrentTime { get; private set; } = 120;
+
+    public event Action OnGameStart = null;
     public event Action<int, int> OnScoreUpdate = null;
     public event Action<float> OnTimeUpdate = null;
     public event Action<int, int> OnGameEnded = null;
 
     private int scoreP1 = 0;
     private int scoreP2 = 0;
-    [SerializeField] private float remainingTime = 120;
 
     private void Awake()
     {
@@ -27,14 +30,26 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Decrease time and call event on game time end
+    /// Initialize the game
+    /// </summary>
+    public void StartGame()
+    {
+        IsGameStarted = true;
+        OnGameStart?.Invoke();
+    }
+
+    /// <summary>
+    /// Increase time and call event on game time end
     /// </summary>
     private void UpdateTimer()
     {
-        remainingTime -= Time.deltaTime;
-        OnTimeUpdate?.Invoke(remainingTime);
+        if (!IsGameStarted)
+            return;
 
-        if (remainingTime <= 0)
+        CurrentTime += Time.deltaTime;
+        OnTimeUpdate?.Invoke(CurrentTime);
+
+        if (CurrentTime > 120)
         {
             OnGameEnded?.Invoke(scoreP1, scoreP2);
             Destroy(this);

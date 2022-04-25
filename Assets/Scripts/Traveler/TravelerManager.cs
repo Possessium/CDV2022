@@ -23,8 +23,6 @@ public class TravelerManager : MonoBehaviour
     [SerializeField] private int p1Travelers = 0;
     private int p2Travelers = 0;
 
-    private float gameTime = 0;
-
     private void Awake()
     {
         instance = this;
@@ -32,45 +30,26 @@ public class TravelerManager : MonoBehaviour
 
     private void Start()
     {
-        // Get all the spawner in the world
-        TravelerSpawner[] _allSpawner = (TravelerSpawner[])FindObjectsOfType(typeof(TravelerSpawner));
-
-        // Populate the correct List based on the side of the spawner
-        for (int i = 0; i < _allSpawner.Length; i++)
-        {
-            if(_allSpawner[i].IsRightSide)
-                allSpawnerRight.Add(_allSpawner[i]);
-            else
-                allSpawnerLeft.Add(_allSpawner[i]);
-        }
-
-        // Spawns the first startTravelers for each sides
-        Traveler _tempTraveler;
-        TravelerSpawner _tempSpawner;
-        for (int i = 0; i < startTravelers; i++)
-        {
-            _tempSpawner = allSpawnerRight[Random.Range(0, allSpawnerRight.Count - 1)];
-            _tempTraveler = Instantiate(travelersPrefab[Random.Range(0, travelersPrefab.Length)], _tempSpawner.transform.position, Quaternion.identity);
-            _tempTraveler.InitializeAgent(p1SpawnZone, true);
-            p1Travelers++;
-
-            _tempSpawner = allSpawnerLeft[Random.Range(0, allSpawnerLeft.Count - 1)];
-            _tempTraveler = Instantiate(travelersPrefab[Random.Range(0, travelersPrefab.Length)], _tempSpawner.transform.position, Quaternion.identity);
-            _tempTraveler.InitializeAgent(p2SpawnZone, false);
-            p2Travelers++;
-        }
+        GameManager.Instance.OnGameStart += InitializeTravelers;
+        GameManager.Instance.OnTimeUpdate += UpdateTime;
     }
 
-    private void Update()
+    /// <summary>
+    /// Update the Traveler count based on the value of the curve on the given time
+    /// </summary>
+    /// <param name="_time">float : time given to evaluate the curve at</param>
+    public void UpdateTime(float _time)
     {
-        gameTime += Time.deltaTime;
+        // Get the target population on the populationCurve at the _time
+        int _targetPopulation = (int)populationCurve.Evaluate(_time);
         
-        int _targetPopulation = (int)populationCurve.Evaluate(gameTime);
-
-        if(p1Travelers < _targetPopulation)
+        // If there is a gap between the P1Travelers and the target
+        if (p1Travelers < _targetPopulation)
         {
+            // Get the amount missing
             int _missing = _targetPopulation - p1Travelers;
 
+            // Spawn or pull from the pool the required amount of Traveler missing
             Traveler _tempTraveler;
             TravelerSpawner _tempSpawner;
             for (int i = 0; i < _missing; i++)
@@ -91,11 +70,13 @@ public class TravelerManager : MonoBehaviour
             }
         }
 
-
+        // If there is a gap between the P2Travelers and the target
         if (p2Travelers < _targetPopulation)
         {
+            // Get the amount missing
             int _missing = _targetPopulation - p2Travelers;
 
+            // Spawn or pull from the pool the required amount of Traveler missing
             Traveler _tempTraveler;
             TravelerSpawner _tempSpawner;
             for (int i = 0; i < _missing; i++)
@@ -114,6 +95,40 @@ public class TravelerManager : MonoBehaviour
                 _tempTraveler.InitializeAgent(p2SpawnZone, false);
                 p2Travelers++;
             }
+        }
+    }
+
+    /// <summary>
+    /// Spawn the firsts Travelers
+    /// </summary>
+    public void InitializeTravelers()
+    {
+        // Get all the spawner in the world
+        TravelerSpawner[] _allSpawner = (TravelerSpawner[])FindObjectsOfType(typeof(TravelerSpawner));
+
+        // Populate the correct List based on the side of the spawner
+        for (int i = 0; i < _allSpawner.Length; i++)
+        {
+            if (_allSpawner[i].IsRightSide)
+                allSpawnerRight.Add(_allSpawner[i]);
+            else
+                allSpawnerLeft.Add(_allSpawner[i]);
+        }
+
+        // Spawns the first startTravelers for each sides
+        Traveler _tempTraveler;
+        TravelerSpawner _tempSpawner;
+        for (int i = 0; i < startTravelers; i++)
+        {
+            _tempSpawner = allSpawnerRight[Random.Range(0, allSpawnerRight.Count - 1)];
+            _tempTraveler = Instantiate(travelersPrefab[Random.Range(0, travelersPrefab.Length)], _tempSpawner.transform.position, Quaternion.identity);
+            _tempTraveler.InitializeAgent(p1SpawnZone, true);
+            p1Travelers++;
+
+            _tempSpawner = allSpawnerLeft[Random.Range(0, allSpawnerLeft.Count - 1)];
+            _tempTraveler = Instantiate(travelersPrefab[Random.Range(0, travelersPrefab.Length)], _tempSpawner.transform.position, Quaternion.identity);
+            _tempTraveler.InitializeAgent(p2SpawnZone, false);
+            p2Travelers++;
         }
     }
 
