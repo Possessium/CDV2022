@@ -1202,6 +1202,18 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 9dcdc80e-3c20-4282-ac9f-e8e73770f808
     m_ActionName: ActionsP1/Movement[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5e4b45ac-557b-417a-baaf-cbaa1cb5eaec
+    m_ActionName: Debug/RDY 1[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c64e9a74-e2e3-4933-8e0b-d11f7d6cf657
+    m_ActionName: Debug/RDY 2[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cc5d1e3e-b0d0-4a1e-aaca-fe0091ee3d37
+    m_ActionName: Debug/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Controller2
   m_DefaultActionMap: ActionsP1
@@ -1221,6 +1233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 1.5
   speed: 10
+  velocitySpeed: 0
   travelerLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -1412,6 +1425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 1.5
   speed: 10
+  velocitySpeed: 0
   travelerLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -1510,6 +1524,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: c64e9a74-e2e3-4933-8e0b-d11f7d6cf657
     m_ActionName: Debug/RDY 2[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cc5d1e3e-b0d0-4a1e-aaca-fe0091ee3d37
+    m_ActionName: Debug/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Controller1
   m_DefaultActionMap: ActionsP1

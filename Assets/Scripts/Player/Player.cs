@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField, Tooltip("Size of the grab")] private float radius = 5;
     [SerializeField, Tooltip("Speed of the hand")] private float speed = 1;
+    [SerializeField, Tooltip("Speed of the hand velocity")] private float velocitySpeed = 5;
     [SerializeField, Tooltip("Layer of the Travelers")] private LayerMask travelerLayer = 0;
     [SerializeField, Tooltip("Layer of the Window")] private LayerMask windowLayer = 0;
     [SerializeField, Tooltip("Limits of the player movements")] private Bounds playerLimits;
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour
     private List<Traveler> grabbedTravelers = new List<Traveler>();
 
     private Vector2 inputMovement;
+    private Vector2 playerVelocity;
     private bool canGrab = true;
     [SerializeField] private float cooldownDuration = .2f;
 
@@ -64,7 +66,9 @@ public class Player : MonoBehaviour
     /// </summary>
     private void MovePlayer()
     {
-        Vector3 _nextPosition = Vector3.MoveTowards(transform.position, transform.position + new Vector3(inputMovement.x, 0, inputMovement.y), Time.deltaTime * speed);
+        playerVelocity = Vector2.MoveTowards(playerVelocity, inputMovement, Time.deltaTime * velocitySpeed);
+
+        Vector3 _nextPosition = Vector3.Lerp(transform.position, transform.position + new Vector3(playerVelocity.x, 0, playerVelocity.y), Time.deltaTime * speed);
 
         // Limits the X position of the player in the bounds
         if (_nextPosition.x < (playerLimits.min.x / 2) + (playerLimits.center.x / 2) || _nextPosition.x > (playerLimits.max.x / 2) + (playerLimits.center.x / 2))
