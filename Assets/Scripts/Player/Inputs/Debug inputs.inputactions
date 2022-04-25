@@ -1,0 +1,56 @@
+{
+    "name": "Debug inputs",
+    "maps": [
+        {
+            "name": "Debug",
+            "id": "5fcc3675-cfa4-49e7-90ef-37f139c3905a",
+            "actions": [
+                {
+                    "name": "Toggle options",
+                    "type": "Button",
+                    "id": "0b2cee77-37dd-47d1-b21a-d8c167ca0bb4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "One Modifier",
+                    "id": "0d298e03-c5d1-46a6-82e9-1b6bd400d09f",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Toggle options",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "0e61b97d-2510-45f2-ac4f-85f53d514335",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Toggle options",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "e6b5e4da-db02-476e-a1a4-3da7e84b5122",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Toggle options",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
