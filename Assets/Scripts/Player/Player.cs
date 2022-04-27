@@ -48,6 +48,9 @@ public class Player : MonoBehaviour
         if (!_ctx.started)
             return;
 
+        if (!GameManager.Instance.IsGameStarted)
+            MainMenu.Instance.SetPlayerReady(isPlayer1);
+
         if (grabbedTravelers.Count != 0)
             ReleaseTravelers();
         else if (canGrab)

@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    public static MainMenu Instance { get; private set; }
+
     [SerializeField] private Animator animator;
 
     [SerializeField] private Image player1Button;
@@ -17,6 +19,10 @@ public class MainMenu : MonoBehaviour
     private bool isPlayer1Ready = false;
     private bool isPlayer2Ready = false;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -27,33 +33,22 @@ public class MainMenu : MonoBehaviour
     /// Register the input of Player 1
     /// </summary>
     /// <param name="_ctx">InputAction.CallbackContext : Input system context</param>
-    public void RegisterPlayer1(InputAction.CallbackContext _ctx)
+    public void SetPlayerReady(bool _isPlayer1)
     {
-        if (!_ctx.started || isPlayer1Ready)
-            return;
+        if (_isPlayer1)
+        {
+            isPlayer1Ready = true;
+            player1Button.sprite = player1readySprite;
+        }
+        else
+        {
+            isPlayer2Ready = true;
+            player2Button.sprite = player2readySprite;
+        }
 
-        isPlayer1Ready = true;
-        player1Button.sprite = player1readySprite;
 
         // If the other player is ready start the countdown
-        if (isPlayer2Ready)
-            StartAnim();
-    }
-
-    /// <summary>
-    /// Register the input of Player 2
-    /// </summary>
-    /// <param name="_ctx">InputAction.CallbackContext : Input system context</param>
-    public void RegisterPlayer2(InputAction.CallbackContext _ctx)
-    {
-        if (!_ctx.started || isPlayer2Ready)
-            return;
-
-        isPlayer2Ready = true;
-        player2Button.sprite = player2readySprite;
-
-        // If the other player is ready start the countdown
-        if (isPlayer1Ready)
+        if (isPlayer2Ready && isPlayer1Ready)
             StartAnim();
     }
 
