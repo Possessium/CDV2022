@@ -1221,7 +1221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 1.5
   speed: 10
-  velocitySpeed: 0
+  velocitySpeed: 2.5
   travelerLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -1413,7 +1413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 1.5
   speed: 10
-  velocitySpeed: 0
+  velocitySpeed: 2.5
   travelerLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -3492,17 +3492,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5835628539643262547, guid: fa2338de833bc9f4d8f575e88ca37ad5, type: 3}
-      propertyPath: m_Enabled
+    - target: {fileID: 5835628541458461562, guid: fa2338de833bc9f4d8f575e88ca37ad5, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5835628539643262547, guid: fa2338de833bc9f4d8f575e88ca37ad5, type: 3}
-      propertyPath: m_DefaultActionMap
-      value: ActionsP1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5835628539643262547, guid: fa2338de833bc9f4d8f575e88ca37ad5, type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5835628541599313899, guid: fa2338de833bc9f4d8f575e88ca37ad5, type: 3}
       propertyPath: m_RootOrder
@@ -3552,14 +3544,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 5835628541599313900, guid: fa2338de833bc9f4d8f575e88ca37ad5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5835628539643262547, guid: fa2338de833bc9f4d8f575e88ca37ad5, type: 3}
-    - {fileID: 5835628541730560309, guid: fa2338de833bc9f4d8f575e88ca37ad5, type: 3}
-    - {fileID: 5835628541734613563, guid: fa2338de833bc9f4d8f575e88ca37ad5, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa2338de833bc9f4d8f575e88ca37ad5, type: 3}
 --- !u!1001 &7452132754771790007
 PrefabInstance:
