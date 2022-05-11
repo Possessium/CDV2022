@@ -11,6 +11,8 @@ public class Traveler : MonoBehaviour
     [SerializeField] private int scoreValue = 10;
     public int ScoreValue { get { return scoreValue; } }
     private WindowDepot window;
+    [SerializeField] private GameObject travelerRender;
+    private float initialRenderYRotation;
 
     #region Gizmos
     private bool isRightSide;
@@ -34,8 +36,8 @@ public class Traveler : MonoBehaviour
         agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
         FindOtherDestination();
 
-        // Debug
-        GetComponentInChildren<MeshRenderer>().material.color = isRightSide? Color.green : Color.red;
+        travelerRender = transform.GetChild(0).gameObject;
+        initialRenderYRotation = travelerRender.transform.localEulerAngles.y;
     }
 
     private void Update()
@@ -46,6 +48,8 @@ public class Traveler : MonoBehaviour
         // Find a new destination when the current one is close enough
         else if (agent.isOnNavMesh && agent.remainingDistance < distanceReachedPoint)
             FindOtherDestination();
+
+        travelerRender.transform.localEulerAngles = new Vector3(travelerRender.transform.localEulerAngles.x, initialRenderYRotation + - transform.eulerAngles.y, travelerRender.transform.localEulerAngles.z);
     }
 
 
