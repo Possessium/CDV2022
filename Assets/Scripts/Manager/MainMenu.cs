@@ -27,6 +27,9 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         AnimationCaller.Instance.OnMenuAnimationEnded += StartGame;
+        
+        // DEBUG START
+        StartAnim();
     }
 
     /// <summary>

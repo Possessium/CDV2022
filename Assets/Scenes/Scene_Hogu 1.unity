@@ -1110,23 +1110,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7452132755012768119, guid: e12b659de11c6fe4181a7a9ec6b0e145, type: 3}
   m_PrefabInstance: {fileID: 164736714}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &661627226 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 666144857870944572, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-  m_PrefabInstance: {fileID: 666144858321610854}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &661627231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 661627226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b3efd4828ef4d9499b350d30c51210a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &737562098
 GameObject:
   m_ObjectHideFlags: 0
@@ -3102,14 +3085,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 298335231}
     - target: {fileID: -583897058502589876, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: highScoreP1
-      value: 
-      objectReference: {fileID: 1280729643}
-    - target: {fileID: -583897058502589876, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: highScoreP2
-      value: 
-      objectReference: {fileID: 1371906804}
-    - target: {fileID: -583897058502589876, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
       propertyPath: highScoreDuo
       value: 
       objectReference: {fileID: 1191597655}
@@ -3165,145 +3140,9 @@ PrefabInstance:
       propertyPath: p2SpawnZone
       value: 
       objectReference: {fileID: 479987154}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[1].time
-      value: 23.51178
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[2].time
-      value: 27.07758
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[3].time
-      value: 86.6135
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[4].time
-      value: 91.29586
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[5].time
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[1].value
-      value: 40.99767
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[2].value
-      value: 80.80068
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[3].value
-      value: 114.83303
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[4].value
-      value: 158.71074
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[5].value
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[1].inSlope
-      value: 2.3497322
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[2].inSlope
-      value: 0.30272564
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[3].inSlope
-      value: 2.1214113
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[4].inSlope
-      value: 3.7579832
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[5].inSlope
-      value: 6.35295
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[1].inWeight
-      value: 0.29871118
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[1].outSlope
-      value: 3.2143052
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[2].inWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[2].outSlope
-      value: 0.30272564
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[3].inWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[3].outSlope
-      value: 2.1214113
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[4].inWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[4].outSlope
-      value: 3.7579832
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[5].inWeight
-      value: 0.4155955
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[5].outSlope
-      value: 6.35295
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[1].outWeight
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[2].outWeight
-      value: 0.123701565
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[3].outWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[4].outWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[5].outWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[1].tangentMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944571, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: populationCurve.m_Curve.Array.data[2].tangentMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 666144857870944572, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
       propertyPath: m_Name
       value: LOGIC
-      objectReference: {fileID: 0}
-    - target: {fileID: 666144857870944573, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
-      propertyPath: remainingTime
-      value: 120
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 992fd7262b0cf2941a95b7c152855acb, type: 3}
