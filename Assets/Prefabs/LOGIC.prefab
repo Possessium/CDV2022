@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 666144857870944573}
   - component: {fileID: 666144857870944571}
   - component: {fileID: -583897058502589876}
+  - component: {fileID: 661627231}
   m_Layer: 0
   m_Name: LOGIC
   m_TagString: Untagged
@@ -59,7 +60,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   travelersPrefab:
-  - {fileID: 5624607624966330475, guid: 56f7f811862f02f4081d248c145eeb3e, type: 3}
+  - {fileID: 5624607624966330475, guid: 505691c05e4309743ab2e67c8c6e0731, type: 3}
+  - {fileID: 5624607624966330475, guid: 44a9d14bafb05f748b8c942f18470826, type: 3}
+  - {fileID: 5624607624966330475, guid: da29cee9129cfe64ba8303cc8c3e96c9, type: 3}
+  - {fileID: 5624607624966330475, guid: 061b42f751383524d842339704e7dfbf, type: 3}
+  - {fileID: 5624607624966330475, guid: 2b384f115024954449bb369261170cdd, type: 3}
+  - {fileID: 5624607624966330475, guid: 118ae84b51c17774cab7dec332c54ebd, type: 3}
+  - {fileID: 5624607624966330475, guid: 2d65da43be3a45946839ce7bdac72aa7, type: 3}
+  - {fileID: 5624607624966330475, guid: 6e1320dabca159b439fad633354f9e4c, type: 3}
+  - {fileID: 5624607624966330475, guid: 3744b7b6c3b6e3c4580bf10bfe689433, type: 3}
+  - {fileID: 5624607624966330475, guid: 17ab63c80a56b2442b05b802a54a88a7, type: 3}
+  - {fileID: 5624607624966330475, guid: db008a20effa9cc4fb57fb3e818f3626, type: 3}
+  - {fileID: 5624607624966330475, guid: fe43369ff681bd649b402b0e8760eeaf, type: 3}
+  - {fileID: 5624607624966330475, guid: 9bea0ff8c880467458f4188b5860bc3f, type: 3}
+  - {fileID: 5624607624966330475, guid: c3295f95e86b5244eab3671a493a8996, type: 3}
+  - {fileID: 5624607624966330475, guid: afc30a0018854294688d8df7aefd2794, type: 3}
+  - {fileID: 5624607624966330475, guid: 00bd7847b73db8b48acfdb8de6c8bbd9, type: 3}
+  - {fileID: 5624607624966330475, guid: 307146c5aafbd874a8454f649b908ac4, type: 3}
+  - {fileID: 5624607624966330475, guid: 5ddefcb9e3e29014b82152bb4833c3c1, type: 3}
+  - {fileID: 5624607624966330475, guid: 1db5d27cc06172d4a80b58aa418e5ce8, type: 3}
+  - {fileID: 5624607624966330475, guid: 34ba1024f44cb114482a0fdc7303a55a, type: 3}
+  - {fileID: 5624607624966330475, guid: 0144f114853aa114dbf5767221959e40, type: 3}
   startTravelers: 15
   p1SpawnZone: {fileID: 0}
   p2SpawnZone: {fileID: 0}
@@ -76,13 +97,49 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 5
-      value: 50
-      inSlope: 24.26023
-      outSlope: 24.26023
+      time: 23.51178
+      value: 40.99767
+      inSlope: 2.3497322
+      outSlope: 3.2143052
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.29871118
+      outWeight: 1
+    - serializedVersion: 3
+      time: 27.07758
+      value: 80.80068
+      inSlope: 0.30272564
+      outSlope: 0.30272564
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.028186226
+      inWeight: 0.33333334
+      outWeight: 0.123701565
+    - serializedVersion: 3
+      time: 86.6135
+      value: 114.83303
+      inSlope: 2.1214113
+      outSlope: 2.1214113
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 91.29586
+      value: 158.71074
+      inSlope: 3.7579832
+      outSlope: 3.7579832
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 120
+      value: 250
+      inSlope: 6.35295
+      outSlope: 6.35295
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.4155955
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -102,3 +159,19 @@ MonoBehaviour:
   scoreP1: {fileID: 0}
   scoreP2: {fileID: 0}
   timer: {fileID: 0}
+  highScoreSolo: {fileID: 0}
+  highScoreDuo: {fileID: 0}
+  gameUI: {fileID: 0}
+  endUI: {fileID: 0}
+--- !u!114 &661627231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666144857870944572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b3efd4828ef4d9499b350d30c51210a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
