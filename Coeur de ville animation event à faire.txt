@@ -1,0 +1,12 @@
+animation
+Tram 5 sec il arrive
+6 sec il ouvre les portes
+30 sec il ferme les portes
+31sec le tram part
+35sec le tram revient
+
+event ouverture et fermeture des portes
+Mettre des events aux moments clés du gameplay
+
+Ouvrir le script AnimationCaller
+Dupliquer la région Menu animation ended et changer le OnMenuAnimationEnded avec le nom de l'évènement qui va se produire (portes qui s'ouvrent, qui se ferment,...)
