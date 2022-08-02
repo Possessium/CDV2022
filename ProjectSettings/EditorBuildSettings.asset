@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Scene_Hogu 1.unity
+    guid: c12cdcc07bb968049ab8b8e294128988
   m_configObjects: {}
